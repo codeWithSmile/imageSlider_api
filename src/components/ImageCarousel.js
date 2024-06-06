@@ -34,6 +34,7 @@ const ImageCarousel = () => {
     return (
         <div className='image-container'>
             <div>
+                <h2>Please enter the item you want to find in the image slider.</h2>
                 <input className='input-box' onChange={(e) => setQuery(e.target.value)}></input>
                 <button className='btn' onClick={runQuery}>Search</button>
             </div>
@@ -41,18 +42,18 @@ const ImageCarousel = () => {
                 <div className='image-slider'>
                     <button onClick={slideLeft}>{'<'}</button>
                     <div className='image-wrapper'>
-                    <TransitionGroup childFactory={childFactory(direction)}>
-                        <CSSTransition 
-                        key={images[index]}
-                        timeout={1000}
-                        classNames={direction}
-                        >
-                        <img src={images[index]} />
-                        </CSSTransition>
-                    </TransitionGroup>
+                        <TransitionGroup childFactory={childFactory(direction)}>
+                            <CSSTransition
+                                key={images[index]}
+                                timeout={1000}
+                                classNames={direction}
+                            >
+                                <img src={images[index]} />
+                            </CSSTransition>
+                        </TransitionGroup>
                     </div>
                     <button onClick={slideRight}>{'>'}</button>
-                    
+
                 </div>
             )}
         </div>
